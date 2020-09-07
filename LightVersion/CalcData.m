@@ -16,8 +16,8 @@ function [B_minimized q_minimized C_minimized] = CalcData(Temp,TempS, C_D, D, T_
 
 %---------------------------------------------------------------------------
 
-midValue = EtaSquareCalc(gamma_R, beta_R, Temp, A_R, T_0_R);
-midValue2 = EtaSquareCalc(gamma_R, beta_R, TempS, A_R, T_0_R);
+midValue = EtaSquareCalc2(gamma_R, beta_R, Temp, A_R, T_0_R)
+midValue2 = EtaSquareCalc2(gamma_R, beta_R, TempS, A_R, T_0_R);
 
 B_calc = @(T, C, D, T_0, k, delta, gamma, beta, A, T_0_AFD) 1/C.* (T - T_0) - k^2*midValue.^2. / (4 * D) + delta * ...
 midValue;
