@@ -3,10 +3,15 @@
 
 function eta_square = EtaSquareCalc2(gamma, beta, T_eta, A_eta, T_0_AFD)
 
+X_min = zeros(1,numel(T_eta));
 
-    alpha = A_eta*(T_eta - T_0_AFD);
+eta = -100:0.01:100;
+
+for k = 1:numel(T_eta)
     
-
+    alpha = A_eta *(T_eta(k) - T_0_AFD);
+    
+    G = alpha/2.* eta.^2 + beta/4.* eta.^4 + gamma/6.* eta.^6;
     Gnew = @(alpha,beta,gamma,x) alpha/2.*x.^2 + beta/4.*x.^4 + gamma/6.*x.^6;
     
     a = [gamma beta alpha];
@@ -22,7 +27,7 @@ function eta_square = EtaSquareCalc2(gamma, beta, T_eta, A_eta, T_0_AFD)
     
     MaxRoot(Gvalue>0) = 0;
     
-
+end
 
 eta_square = MaxRoot.^2;
 end
