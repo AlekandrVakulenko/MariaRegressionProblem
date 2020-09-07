@@ -15,6 +15,7 @@ load('temps.mat')
 % 2.0938e-04 NEW
 % 0.0404/2.0938e-04 = 192
 
+PARS = output1;
 
 [B_min q_min C_min] = CalcData(B_q_Temp,C_Temp, PARS(1), PARS(2), PARS(3),PARS(4), PARS(5), PARS(6), PARS(7), PARS(8), PARS(9));
 
@@ -32,6 +33,9 @@ plot(B_q_Temp, q_exp,'x')
 
 figure
 hold on
+x = 150:0.1:300;
+[B_min q_min y] = CalcData(B_q_Temp, x, PARS(1), PARS(2), PARS(3),PARS(4), PARS(5), PARS(6), PARS(7), PARS(8), PARS(9));
+plot(x, y)
 plot(C_Temp, C_min)
 plot(C_Temp, C_exp,'x')
 
