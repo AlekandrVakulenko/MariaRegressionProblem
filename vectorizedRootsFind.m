@@ -15,14 +15,16 @@ b = [-3 3 0];
 
 c = [1 3 -5];
 
-
+%find roots
 root = (-b+(b.^2-4*a.*c).^0.5)./(2*a);
 
 %compex roots is now equal to 0
 root(imag(root)~=0) = 0;
 
-%compare g(root) value to 0
+%find function values at root position
 values = g(a,b,c,root);
+
+%compare g(root) value to 0
 values(values<0) = 0
 
 
