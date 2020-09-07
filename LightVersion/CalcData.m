@@ -1,7 +1,7 @@
 
 
 
-function [B_minimized q_minimized C_minimized] = nyan(Temp,TempS, C_D, D, T_0,k, delta_0, gamma_R, beta_R, A_R, T_0_R)
+function [B_minimized q_minimized C_minimized] = CalcData(Temp,TempS, C_D, D, T_0,k, delta_0, gamma_R, beta_R, A_R, T_0_R)
 
 % C_D = 1
 % D =1

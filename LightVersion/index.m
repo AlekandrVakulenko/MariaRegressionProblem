@@ -1,11 +1,12 @@
 
 
-
+%open all scripts
 edit('MAIN.m')
 edit('EtaSquareCalc.m')
-edit('nyan.m')
-edit('E:\_OneDrive\OneDrive\_MATLAB\Maria\Untitled2.m')
+edit('CalcData.m')
+edit('tryRegression.m')
 
+%load data
 load('MAIN_expval.mat')
 load('PARS.mat')
 load('temps.mat')
