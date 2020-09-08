@@ -19,7 +19,7 @@ disp('start')
 
 %FIXME add InitialSwarmMatrix
 
-MaxSwarm = 20000; %20000 D: 10000 долго 1000 норм 100 мало
+MaxSwarm = 1000; %20000 D: 10000 долго 1000 норм 100 мало
 options = optimoptions('particleswarm','SwarmSize',MaxSwarm, ...
                        'UseParallel',true, ...
                        'PlotFcn','pswplotbestf','Display','iter');
@@ -60,7 +60,7 @@ output1 = output1good5;
 for Index = 1:100
 Index
     
-MaxSwarm = 10000; %20000 D: 10000 долго 1000 норм 100 мало
+MaxSwarm = 1000; %20000 D: 10000 долго 1000 норм 100 мало
 options = optimoptions('particleswarm','SwarmSize',MaxSwarm, ...
                        'UseParallel',true, ...
                        'PlotFcn','pswplotbestf','Display','iter');
@@ -77,6 +77,7 @@ globaloutput{Index} = output1;
 
 end
 %%
+
 model(output1)
 
 function out = model(PARS)

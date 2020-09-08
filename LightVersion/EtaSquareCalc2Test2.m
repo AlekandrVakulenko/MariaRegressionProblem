@@ -38,7 +38,7 @@ output = Roots(Index)
 
 
 
-for i=1:size(alpha,2)
+for i=2
 cla
 
 %----------PRINT----------------
