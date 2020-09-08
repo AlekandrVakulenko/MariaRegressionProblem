@@ -17,9 +17,7 @@ disp('start')
 %                        'PlotFcn','pswplotbestf','Display','iter');
 %vout = particleswarm(ModelFunctionPS,40,Lower,Upper,options)
 
-%FIXME add InitialSwarmMatrix
-
-MaxSwarm = 4000; %10000 долго 1000 норм 100 мало
+MaxSwarm = 8000; %10000 долго 1000 норм 100 мало
 options = optimoptions('particleswarm','SwarmSize',MaxSwarm, ...
                        'UseParallel',true, ...
                        'PlotFcn','pswplotbestf','Display','iter');
@@ -41,6 +39,9 @@ output1 = particleswarm(model2,9,lower,upper,options)
 disp('output1 done')
 
 
+output2 = fminunc(model2,PARS)
+
+disp('output2 done')
 
 %%
 
@@ -88,14 +89,12 @@ end
 % MaxValueADD = ((max(abs(C_min2))-2750)/1000)^2; %SMOOTH
 
 MaxValueADD = (abs(max(abs(C_min2))-2750)>2000)*1000; %STEP
-MaxValueADD = MaxValueADD + (min(C_min2)<300)*1000;
 
 %--------------------------------
 
-C_weight = ones(size(C_Temp))*1;
-C_weight(end-4:end) = C_weight(end-4:end)*1;
 
-out = sum([(B_min-B_exp)./weg(B_exp)*1.4 (q_min-q_exp)./weg(q_exp)*1 (C_min-C_exp)./weg(C_exp).*C_weight ].^2) ...
+
+out = sum([(B_min-B_exp)./weg(B_exp)*1.4 (q_min-q_exp)./weg(q_exp)*1 (C_min-C_exp)./weg(C_exp)*3 ].^2) ...
       + TempMaxADD*100 ...
       + MaxValueADD;
 

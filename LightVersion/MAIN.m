@@ -95,7 +95,8 @@ set(figP,'Position',[116.5,435,1538.5,543])
 
 
 PARS0 = PARS;
-
+PARS0 = output1good1;
+PARS0 = output1;
 
 while 1>0
     
