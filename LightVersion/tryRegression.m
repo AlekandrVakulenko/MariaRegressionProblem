@@ -19,21 +19,21 @@ disp('start')
 
 %FIXME add InitialSwarmMatrix
 
-MaxSwarm = 4000; %10000 долго 1000 норм 100 мало
+MaxSwarm = 20000; %20000 D: 10000 долго 1000 норм 100 мало
 options = optimoptions('particleswarm','SwarmSize',MaxSwarm, ...
                        'UseParallel',true, ...
                        'PlotFcn','pswplotbestf','Display','iter');
 % lower = -abs(PARS)*10;
 % upper = abs(PARS)*10;
 
-lower = [      10   -1    50   -1   -1   -1   -100   -100    50];
-upper = [  100000    1   300    1    1    1    100    100   300];
+% lower = [      10   -1    50   -1   -1   -1   -100   -100    50];
+% upper = [  100000    1   300    1    1    1    100    100   300];
 
 
-% lower([1 2 3 5 7 8 9]) = output1good1([1 2 3 5 7 8 9])/30;
-% upper([1 2 3 5 7 8 9]) = output1good1([1 2 3 5 7 8 9])*30;
-% lower([4 6]) = output1good1([4 6])*30;
-% upper([4 6]) = output1good1([4 6])/30;
+lower([1 2 3 5 7 8 9]) = output1good5([1 2 3 5 7 8 9])/30;
+upper([1 2 3 5 7 8 9]) = output1good5([1 2 3 5 7 8 9])*30;
+lower([4 6]) = output1good5([4 6])*30;
+upper([4 6]) = output1good5([4 6])/30;
 
 output1 = particleswarm(model2,9,lower,upper,options)
 
@@ -50,6 +50,32 @@ model(output2)
 
 
 
+%% loop loop loop
+clc
+
+model2 = @(var) model(var);
+
+output1 = output1good5;
+
+for Index = 1:100
+Index
+    
+MaxSwarm = 10000; %20000 D: 10000 долго 1000 норм 100 мало
+options = optimoptions('particleswarm','SwarmSize',MaxSwarm, ...
+                       'UseParallel',true, ...
+                       'PlotFcn','pswplotbestf','Display','iter');
+
+
+lower([1 2 3 5 7 8 9]) = output1([1 2 3 5 7 8 9])/30;
+upper([1 2 3 5 7 8 9]) = output1([1 2 3 5 7 8 9])*30;
+lower([4 6]) = output1([4 6])*30;
+upper([4 6]) = output1([4 6])/30;
+
+output1 = particleswarm(model2,9,lower,upper,options)
+
+globaloutput{Index} = output1;
+
+end
 %%
 model(output1)
 
