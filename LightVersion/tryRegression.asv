@@ -19,7 +19,7 @@ disp('start')
 
 %FIXME add InitialSwarmMatrix
 
-MaxSwarm = 1000; %20000 D: 10000 долго 1000 норм 100 мало
+MaxSwarm = 5000; %20000 D: 10000 долго 1000 норм 100 мало
 options = optimoptions('particleswarm','SwarmSize',MaxSwarm, ...
                        'UseParallel',true, ...
                        'MaxIterations', MaxSwarm*20, ...
@@ -174,9 +174,9 @@ MaxValueADD = MaxValueADD + (min(C_min2)<300)*1000;
 %--------------------------------
 
 C_weight = ones(size(C_Temp))*1;
-C_weight(end-4:end) = C_weight(end-4:end)*1.4;
+C_weight(end-4:end) = C_weight(end-4:end)*5;
 
-out = sum([(B_min-B_exp)./weg(B_exp)*1.4 (q_min-q_exp)./weg(q_exp)*1 (C_min-C_exp)./weg(C_exp).*C_weight ].^2) ...
+out = sum([(B_min-B_exp)./weg(B_exp)*4 (q_min-q_exp)./weg(q_exp)*1 (C_min-C_exp)./weg(C_exp).*C_weight ].^2) ...
       + TempMaxADD*100 ...
       + MaxValueADD;
 

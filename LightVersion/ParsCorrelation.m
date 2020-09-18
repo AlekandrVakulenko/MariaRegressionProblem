@@ -8,6 +8,8 @@ data = globaloutput';
 data = cell2mat(data);
 
 
+%%
+
 for i=1:9
 for j=i+1:9
     
@@ -24,10 +26,15 @@ end
 
 
 
+%%
 
+i=1;
+j=5;
 
+plot(data(:,i),data(:,j),'x')
 
-
+% set(gca,'xscale','log')
+% set(gca,'yscale','log')
 
 
 

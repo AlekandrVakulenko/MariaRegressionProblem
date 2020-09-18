@@ -2,7 +2,7 @@
 
 close all
 
-
+load('globaloutput001.mat')
 load('PARS.mat')
 load('tempAndExp.mat')
 
@@ -12,7 +12,7 @@ set(figP,'Position',[116.5,435,1538.5,543])
 
 
 
-for i = 900:1200
+for i = 1500:1600
     
 
     
@@ -52,7 +52,7 @@ for i = 900:1200
     hold on
     plot(C_Temp, C_min)
     plot(C_Temp, C_exp,'x')
-%     ylim([0 16000])
+     ylim([0 4000])
 %     xlim([0 300])
     drawnow
     

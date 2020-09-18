@@ -15,8 +15,8 @@ load('tempAndExp.mat')
 % 2.0938e-04 NEW
 % 0.0404/2.0938e-04 = 192
 
-% PARS = output1;
-PARS=globaloutput{1};
+PARS = output1;
+% PARS=globaloutput{1};
 
 [B_min q_min C_min] = CalcData(B_q_Temp,C_Temp, PARS(1), PARS(2), PARS(3),PARS(4), PARS(5), PARS(6), PARS(7), PARS(8), PARS(9));
 
