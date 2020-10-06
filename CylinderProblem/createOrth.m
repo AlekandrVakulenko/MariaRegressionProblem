@@ -1,5 +1,5 @@
 
-
+% creates two orthogonal vectors to present
 
 function [orth1 orth2] = createOrth(vect)
 orth1 = [0 0 0];
