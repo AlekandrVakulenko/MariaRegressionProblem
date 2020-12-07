@@ -1,11 +1,12 @@
 
+
+
 % creates two orthogonal vectors to present
 
 function [orth1 orth2] = createOrth(vect)
 orth1 = [0 0 0];
 
 [~, index] = max(abs(vect));
-
 
 
 coord1 = mod(index,3)+1;
